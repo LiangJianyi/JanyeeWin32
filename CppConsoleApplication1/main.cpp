@@ -7,7 +7,7 @@ using namespace std;
 tm newtime;
 time_t aclock;
 int main() {
-	char buffer[32];
+	char buffer[64];
 	int errNum;
 	// Get the number of seconds elapsed since midnight (00:00:00), January 1, 1970, UTC, according to the system clock. 
 	time(&aclock);
@@ -16,7 +16,7 @@ int main() {
 										 // Print local time as a string.  
 
 	// Convert time to string form
-	errNum = asctime_s(buffer, 32, &newtime);
+	errNum = asctime_s(buffer, 64, &newtime);
 	if (errNum)
 	{
 		cout << "Error code: %d" << (int)errNum << endl;
