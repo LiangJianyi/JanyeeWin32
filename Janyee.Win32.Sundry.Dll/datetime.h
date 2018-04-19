@@ -17,12 +17,10 @@ namespace JanyeeWin32Sundry {
 		static std::string DisplayCurrentTime() {
 			char buffer[64];
 			errNum = asctime_s(buffer, 64, &newtime);
-			if (errNum)
-			{
+			if (errNum) {
 				return std::string("Error code: ").append(std::to_string(errNum));
 			}
-			else
-			{
+			else {
 				return buffer;
 			}
 		}
