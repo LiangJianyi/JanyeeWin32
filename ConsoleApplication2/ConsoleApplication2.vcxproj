@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{CE097412-0374-4402-83CD-F807CFA2A5ED}</ProjectGuid>
+    <ProjectGuid>{FDACA64F-8024-452A-9B06-9A965E900537}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
@@ -90,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\a124p\Documents\GitHub\JanyeeWin32\JanyeeWin32Sundry;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,8 +161,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Janyee.Win32.Sundry.Dll\Janyee.Win32.Sundry.Dll.vcxproj">
-      <Project>{26284e53-3472-4f44-a136-cfbc1ddc6295}</Project>
+    <ProjectReference Include="..\JanyeeWin32Sundry\JanyeeWin32Sundry.vcxproj">
+      <Project>{3acd4f20-d38a-4675-86e7-562e4c122525}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
