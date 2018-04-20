@@ -161,9 +161,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JanyeeWin32Sundry\JanyeeWin32Sundry.vcxproj">
-      <Project>{3acd4f20-d38a-4675-86e7-562e4c122525}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\MathFuncsLib\MathFuncsLib.vcxproj">
       <Project>{b081944a-472b-4796-982d-a71a2bc1fdec}</Project>
     </ProjectReference>
