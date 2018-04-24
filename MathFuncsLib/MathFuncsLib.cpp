@@ -27,6 +27,9 @@ namespace MathFuncs {
 }
 
 namespace JanyeeWin32Sundry {
+	DateTime DateTime::DateTime() {
+		return new DateTime();
+	}
 	std::string DateTime::DisplayCurrentTime() {
 		char buffer[64];
 		errNum = asctime_s(buffer, 64, &newtime);
