@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+Matrix/Janyee.Matrix/Test/pch.cpp
+Matrix/Janyee.Matrix/Test/pch.h
+Matrix/Janyee.Matrix/Test/Test.cpp
+Matrix/Janyee.Matrix/Test/Test.vcxproj
+Matrix/Janyee.Matrix/Test/Test.vcxproj.filters
