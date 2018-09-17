@@ -1,5 +1,7 @@
-#pragma once
+﻿#pragma once
 #include <typeinfo>
+#include <exception>
+#include <stdexcept>
 namespace Janyee_Math {
 	class Scalar {
 	public:
@@ -12,20 +14,29 @@ namespace Janyee_Math {
 			int rightState = Scalar::CheckRight(right);
 			switch (leftState) {
 				case -1:
-					throw std::invalid_argument("Invalid argument: " + left);
+					throw std::invalid_argument("Invalid left argument: ");
 				case 0:
 					switch (rightState) {
 						case -1:
-							thrwo std::invalid_argument("Invalid argument: " + right);
+							throw std::invalid_argument("Invalid right argument: ");
 						case 0:
 							return left + right;
 						case 1:
 							return left + right.Value();
 						default:
-							throw std::exception("Left argument return a except value: ", rightState);
+							throw std::exception("Right argument return a except value: ", rightState);
 					}
 				case 1:
-					break;
+					switch (rightState) {
+						case -1:
+							throw std::invalid_argument("Invalid right argument: ");
+						case 0:
+							return left.Value() + right;
+						case 1:
+							return left.Value() + right.Value();
+						default:
+							throw std::exception("Right argument return a except value: ", rightState);
+					}
 				default:
 					throw std::exception("Left argument return a except value: ",leftState);
 			}
@@ -35,11 +46,17 @@ namespace Janyee_Math {
 				return left * right;
 			}
 			else {
-				throw std::invalid_argument("Invalid argument: " + left);
+				throw std::invalid_argument("Invalid left argument: ");
 			}
 		}
 	private:
 		long double _value;
+		/*
+		CheckLeft 与 CheckRight 返回值含义如下：
+			0：参数是内置类型
+			1：参数是 Scalar 类型
+			-1：参数是非内置非 Scalar 类型
+		*/
 		template<typename L>
 		static int CheckLeft(L left) {
 			if (typeid(left) == typeid(long double) ||
