@@ -42,7 +42,7 @@ int main() {
 	char hello[12] = "hello";
 	char world[] = "world";
 	//char * cp = hello;
-	errno_t result = strcat_s(hello, 12, world);
+	errno_t result = strcat_s(hello, _countof(hello), world);
 	//printf_s("%c\n", *cp);
 	printf_s("%s\n", hello);
 	printf_s("%d\n", result);

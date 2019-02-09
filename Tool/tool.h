@@ -11,10 +11,12 @@ struct STUDENT {
 	const char* name;
 	enum LEVEL level;
 };
-const char* Fuck();
+const char * Fuck();
 void Add(void * p, struct LINKED_LIST * likptr);
 void Remove(void * p, struct LINKED_LIST * likptr);
 void Find(void * p, struct LINKED_LIST * likptr);
 void IndexOf(void * p, struct LINKED_LIST * likptr);
 void First(void * p, struct LINKED_LIST * likptr);
 void Last(void * p, struct LINKED_LIST * likptr);
+const char * StudentInfo(struct STUDENT * stu);
+char * ToString(struct STUDENT * stu_ptr);
