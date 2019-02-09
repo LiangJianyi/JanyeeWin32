@@ -65,11 +65,12 @@ const char * LevelEnumToString(LEVEL level) {
 void Add(void * content, struct LINKED_LIST * likptr) {
 	struct LINKED_LIST * temp = (struct LINKED_LIST*)malloc(sizeof(struct LINKED_LIST));
 	temp->content = content;
+	temp->node = NULL;
 	if (likptr->node == NULL) {
 		likptr->node = temp;
 	}
 	else {
-		abort();
+		Add(content, likptr->node);
 	}
 }
 

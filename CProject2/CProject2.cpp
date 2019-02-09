@@ -25,34 +25,13 @@ int main() {
 
 	NewParagraph();
 
+	void PrintStudentInfo(const char * sti);
 	struct LINKED_LIST first;
 	first.content = GetStudent("s001", "Janyee", LOW);
 	first.node = NULL;
 
-	struct LINKED_LIST second;
-	second.content = GetStudent("s002", "Lee SM", MEDIUM);
-	second.node = NULL;
-
-	struct LINKED_LIST third;
-	third.content = GetStudent("s003", "Wong YM", HIGH);
-	third.node = NULL;
-
-	printf_s("checkout STUDENT data:\n");
-	const char * si1 = StudentInfo((STUDENT*)first.content);
-	const char * si2 = StudentInfo((STUDENT*)second.content);
-	const char * si3 = StudentInfo((STUDENT*)third.content);
-	printf_s("first.content = %s\n", si1);
-	printf_s("second.content = %s\n", si2);
-	printf_s("third.content = %s\n", si3);
-	free((void*)si1);
-	free((void*)si2);
-	free((void*)si3);
-
-	NewParagraph();
-
-	void PrintStudentInfo(const char * sti);
-	Add(GetStudent("s002", "Lee SM", MEDIUM),
-		&first);
+	Add(GetStudent("s002", "Lee SM", MEDIUM), &first);
+	Add(GetStudent("s003", "Wong YM", HIGH), &first);
 	ForEach(&first, PrintStudentInfo);
 
 	return 0;
