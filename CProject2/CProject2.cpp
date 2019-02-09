@@ -1,5 +1,7 @@
 ﻿#include <stdio.h>
 #include <string.h>
+#include <errno.h>
+#include <stdlib.h>
 #include "tool.h"
 int main() {
 	/*char text[] = { 'a','p','p','l','e' };
@@ -8,7 +10,7 @@ int main() {
 		printf_s("%c ", (*textp)[i]);
 	}
 	printf_s("\n");*/
-
+	struct STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level);
 	struct LINKED_LIST lik;
 	struct STUDENT * stu_ptr = GetStudent("s001", "Janyee", LOW);
 	printf_s("stu_ptr address: %p\n", stu_ptr);
@@ -26,6 +28,25 @@ int main() {
 
 	struct LINKED_LIST first;
 	first.content = GetStudent("s001", "Janyee", LOW);
+	first.node = NULL;
+
+	struct LINKED_LIST second;
+	second.content = GetStudent("s002", "Lee SM", LOW);
+	second.node = NULL;
+
+	struct LINKED_LIST third;
+	third.content = GetStudent("s003", "Wong YM", LOW);
+	third.node = NULL;
+
+	/////////////////////////////////
+	char hello[12] = "hello";
+	char world[] = "world";
+	//char * cp = hello;
+	errno_t result = strcat_s(hello, 12, world);
+	//printf_s("%c\n", *cp);
+	printf_s("%s\n", hello);
+	printf_s("%d\n", result);
+
 	return 0;
 }
 
