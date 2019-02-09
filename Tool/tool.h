@@ -1,6 +1,6 @@
 #pragma once
 struct LINKED_LIST {
-	struct STUDENT * content;
+	void * content;
 	struct LINKED_LIST * node;
 };
 enum LEVEL {

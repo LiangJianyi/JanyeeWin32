@@ -43,9 +43,9 @@ int main() {
 	printf_s("id: %s, name: %s, level: %d\n", second.content->id, second.content->name, second.content->level);
 	printf_s("id: %s, name: %s, level: %d\n", third.content->id, third.content->name, third.content->level);*/
 
-	const char * si1 = StudentInfo(first.content);
-	const char * si2 = StudentInfo(second.content);
-	const char * si3 = StudentInfo(third.content);
+	const char * si1 = StudentInfo((struct STUDENT *)first.content);
+	const char * si2 = StudentInfo((struct STUDENT *)second.content);
+	const char * si3 = StudentInfo((struct STUDENT *)third.content);
 	printf_s("first.content = %s\n", si1);
 	printf_s("second.content = %s\n", si2);
 	printf_s("third.content = %s\n", si3);

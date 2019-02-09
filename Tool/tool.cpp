@@ -21,14 +21,14 @@ const char * StudentInfo(struct STUDENT * stu) {
 		strlen(LABEL_NAME) +
 		strlen(LABEL_LEVEL);
 	const char * levelstr = LevelEnumToString(stu->level);
-	size_t chartotal = labelLength + strlen(levelstr) + strlen(stu->name) + strlen(stu->id);
+	size_t chartotal = labelLength + strlen(levelstr) + strlen(stu->name) + strlen(stu->id) + 1;
 	char * result = (char*)calloc(chartotal, sizeof(char));
 	strcpy_s(result, chartotal, LABEL_ID);
 	strcat_s(result, chartotal, SPACE);
 	strcat_s(result, chartotal, stu->id);
 	strcat_s(result, chartotal, COMMA);
 	strcat_s(result, chartotal, SPACE);
-	strcpy_s(result, chartotal, LABEL_NAME);
+	strcat_s(result, chartotal, LABEL_NAME);
 	strcat_s(result, chartotal, SPACE);
 	strcat_s(result, chartotal, stu->name);
 	strcat_s(result, chartotal, COMMA);
