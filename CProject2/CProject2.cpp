@@ -33,6 +33,7 @@ int main() {
 	Add(GetStudent("s002", "Lee SM", MEDIUM), &first);
 	Add(GetStudent("s003", "Wong YM", HIGH), &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d", Count(&first));
 
 	return 0;
 }
