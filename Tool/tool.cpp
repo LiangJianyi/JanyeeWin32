@@ -15,23 +15,29 @@ const char * StudentInfo(struct STUDENT * stu) {
 	const char * LABEL_NAME = "name:";
 	const char * LABEL_LEVEL = "level:";
 	const size_t labelLength =
-		strlen(SPACE) * 2 +
+		strlen(SPACE) * 5 +
 		strlen(COMMA) * 2 +
 		strlen(LABEL_ID) +
 		strlen(LABEL_NAME) +
 		strlen(LABEL_LEVEL);
 	const char * levelstr = LevelEnumToString(stu->level);
-	size_t charcount = labelLength + strlen(levelstr) + strlen(stu->name) + strlen(stu->id);
-	char * result = (char*)calloc(charcount, sizeof(char));
-	strcpy_s(result, _countof(result), charcount);
+	size_t chartotal = labelLength + strlen(levelstr) + strlen(stu->name) + strlen(stu->id);
+	char * result = (char*)calloc(chartotal, sizeof(char));
+	strcpy_s(result, chartotal, LABEL_ID);
+	strcat_s(result, chartotal, SPACE);
+	strcat_s(result, chartotal, stu->id);
+	strcat_s(result, chartotal, COMMA);
+	strcat_s(result, chartotal, SPACE);
+	strcpy_s(result, chartotal, LABEL_NAME);
+	strcat_s(result, chartotal, SPACE);
+	strcat_s(result, chartotal, stu->name);
+	strcat_s(result, chartotal, COMMA);
+	strcat_s(result, chartotal, SPACE);
+	strcat_s(result, chartotal, LABEL_LEVEL);
+	strcat_s(result, chartotal, SPACE);
+	strcat_s(result, chartotal, levelstr);
 
-	char string[80];
-	strcpy_s(string, _countof(string), "Hello world from ");
-	strcat_s(string, _countof(string), "strcpy_s ");
-	strcat_s(string, _countof(string), "and ");
-	strcat_s(string, _countof(string), "strcat_s!");
-
-	return nullptr;
+	return result;
 }
 
 const char * LevelEnumToString(LEVEL level) {
@@ -47,11 +53,11 @@ const char * LevelEnumToString(LEVEL level) {
 	}
 }
 
-void Add(void * p, struct LINKED_LIST * likptr) {
-	struct LINKED_LIST temp;
-	temp.content = p;
-	(*likptr).node = &temp;
-}
+//void Add(void * p, struct LINKED_LIST * likptr) {
+//	struct LINKED_LIST temp;
+//	temp.content = p;
+//	(*likptr).node = &temp;
+//}
 
 char * ToString(struct STUDENT * stu_ptr) {
 	return nullptr;

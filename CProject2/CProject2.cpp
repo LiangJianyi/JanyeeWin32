@@ -31,31 +31,37 @@ int main() {
 	first.node = NULL;
 
 	struct LINKED_LIST second;
-	second.content = GetStudent("s002", "Lee SM", LOW);
+	second.content = GetStudent("s002", "Lee SM", MEDIUM);
 	second.node = NULL;
 
 	struct LINKED_LIST third;
-	third.content = GetStudent("s003", "Wong YM", LOW);
+	third.content = GetStudent("s003", "Wong YM", HIGH);
 	third.node = NULL;
 
-	/////////////////////////////////
-	char hello[12] = "hello";
-	char world[] = "world";
-	//char * cp = hello;
-	errno_t result = strcat_s(hello, _countof(hello), world);
-	//printf_s("%c\n", *cp);
-	printf_s("%s\n", hello);
-	printf_s("%d\n", result);
+	printf_s("checkout STUDENT data:\n");
+	/*printf_s("id: %s, name: %s, level: %d\n", first.content->id, first.content->name, first.content->level);
+	printf_s("id: %s, name: %s, level: %d\n", second.content->id, second.content->name, second.content->level);
+	printf_s("id: %s, name: %s, level: %d\n", third.content->id, third.content->name, third.content->level);*/
 
+	const char * si1 = StudentInfo(first.content);
+	const char * si2 = StudentInfo(second.content);
+	const char * si3 = StudentInfo(third.content);
+	printf_s("first.content = %s\n", si1);
+	printf_s("second.content = %s\n", si2);
+	printf_s("third.content = %s\n", si3);
+	free((void*)si1);
+	free((void*)si2);
+	free((void*)si3);
+	
 	return 0;
 }
 
-struct STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level) {
-	struct STUDENT stu;
-	stu.id = id;
-	stu.name = name;
-	stu.level = level;
-	return &stu;
+STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level) {
+	STUDENT * stu = (STUDENT*)malloc(sizeof(STUDENT));
+	stu->id = id;
+	stu->name = name;
+	stu->level = level;
+	return stu;
 };
 
 void* lsearch(void* key, void *base, int n, int elemSize) {
