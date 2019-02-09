@@ -7,8 +7,17 @@ const char * Fuck() {
 	return text;
 }
 
+void ForEach(LINKED_LIST * likptr, void(*func)(const char *)) {
+	if (likptr != NULL) {
+		func(StudentInfo((struct STUDENT *)likptr->content));
+		ForEach(likptr->node, func);
+	}
+}
+
 const char * StudentInfo(struct STUDENT * stu) {
 	const char * LevelEnumToString(LEVEL level);
+	// format:
+	// id: {id}, name: {name}, level: {level}\0
 	const char * SPACE = " ";
 	const char * COMMA = ",";
 	const char * LABEL_ID = "id:";
@@ -53,11 +62,16 @@ const char * LevelEnumToString(LEVEL level) {
 	}
 }
 
-//void Add(void * p, struct LINKED_LIST * likptr) {
-//	struct LINKED_LIST temp;
-//	temp.content = p;
-//	(*likptr).node = &temp;
-//}
+void Add(void * content, struct LINKED_LIST * likptr) {
+	struct LINKED_LIST * temp = (struct LINKED_LIST*)malloc(sizeof(struct LINKED_LIST));
+	temp->content = content;
+	if (likptr->node == NULL) {
+		likptr->node = temp;
+	}
+	else {
+		abort();
+	}
+}
 
 char * ToString(struct STUDENT * stu_ptr) {
 	return nullptr;

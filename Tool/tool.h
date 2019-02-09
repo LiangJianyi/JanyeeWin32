@@ -18,5 +18,6 @@ void Find(void * p, struct LINKED_LIST * likptr);
 void IndexOf(void * p, struct LINKED_LIST * likptr);
 void First(void * p, struct LINKED_LIST * likptr);
 void Last(void * p, struct LINKED_LIST * likptr);
+void ForEach(LINKED_LIST * likptr, void(*func)(const char *));
 const char * StudentInfo(struct STUDENT * stu);
 char * ToString(struct STUDENT * stu_ptr);

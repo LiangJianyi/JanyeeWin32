@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include "tool.h"
+#include "CProject2.h"
 int main() {
 	/*char text[] = { 'a','p','p','l','e' };
 	char(*textp)[5] = &text;
@@ -22,9 +23,7 @@ int main() {
 	//void_ptr = text_ptr;
 	//printf_s("%p\n", lik_ptr);
 
-	printf_s("\n");
-	printf_s("\n");
-	printf_s("\n");
+	NewParagraph();
 
 	struct LINKED_LIST first;
 	first.content = GetStudent("s001", "Janyee", LOW);
@@ -39,21 +38,34 @@ int main() {
 	third.node = NULL;
 
 	printf_s("checkout STUDENT data:\n");
-	/*printf_s("id: %s, name: %s, level: %d\n", first.content->id, first.content->name, first.content->level);
-	printf_s("id: %s, name: %s, level: %d\n", second.content->id, second.content->name, second.content->level);
-	printf_s("id: %s, name: %s, level: %d\n", third.content->id, third.content->name, third.content->level);*/
-
-	const char * si1 = StudentInfo((struct STUDENT *)first.content);
-	const char * si2 = StudentInfo((struct STUDENT *)second.content);
-	const char * si3 = StudentInfo((struct STUDENT *)third.content);
+	const char * si1 = StudentInfo((STUDENT*)first.content);
+	const char * si2 = StudentInfo((STUDENT*)second.content);
+	const char * si3 = StudentInfo((STUDENT*)third.content);
 	printf_s("first.content = %s\n", si1);
 	printf_s("second.content = %s\n", si2);
 	printf_s("third.content = %s\n", si3);
 	free((void*)si1);
 	free((void*)si2);
 	free((void*)si3);
-	
+
+	NewParagraph();
+
+	void PrintStudentInfo(const char * sti);
+	Add(GetStudent("s002", "Lee SM", MEDIUM),
+		&first);
+	ForEach(&first, PrintStudentInfo);
+
 	return 0;
+}
+
+void PrintStudentInfo(const char * sti) {
+	printf_s("%s\n", sti);
+}
+
+void NewParagraph() {
+	printf_s("\n");
+	printf_s("\n");
+	printf_s("\n");
 }
 
 STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level) {
