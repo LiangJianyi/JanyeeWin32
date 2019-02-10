@@ -1,17 +1,11 @@
 #include "tool.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 const char * Fuck() {
 	const char text[] = { 'a','p','p','l','e','\0' };
 	return text;
-}
-
-void ForEach(LINKED_LIST * likptr, void(*func)(const char *)) {
-	if (likptr != NULL) {
-		func(StudentInfo((struct STUDENT *)likptr->content));
-		ForEach(likptr->node, func);
-	}
 }
 
 const char * StudentInfo(struct STUDENT * stu) {
@@ -62,51 +56,23 @@ const char * LevelEnumToString(LEVEL level) {
 	}
 }
 
-void Add(void * content, struct LINKED_LIST * likptr) {
-	struct LINKED_LIST * temp = (struct LINKED_LIST*)malloc(sizeof(struct LINKED_LIST));
-	temp->content = content;
-	temp->node = NULL;
-	if (likptr->node == NULL) {
-		likptr->node = temp;
-	}
-	else {
-		Add(content, likptr->node);
-	}
-}
 
-size_t $Increment = 0;
-size_t Count(LINKED_LIST * likptr) {
-	if (likptr != NULL) {
-		if (likptr->content != NULL) {
-			$Increment += 1;
-			return Count(likptr->node);
+
+
+void ReadFile(char * path) {
+	char buf[1024];
+	FILE *file;
+	size_t nread;
+	errno_t err;
+
+	err = fopen_s(&file, path, "r");
+	if (file) {
+		while ((nread = fread(buf, 1, sizeof buf, file)) > 0)
+			fwrite(buf, 1, nread, stdout);
+		if (ferror(file)) {
+			/* deal with error */
 		}
+		fclose(file);
 	}
-	else {
-		return $Increment;
-	}
+	printf_s("%s\n", buf);
 }
-
-void Remove(size_t index, LINKED_LIST * likptr) {
-	if (index > 0) {
-		for (size_t i = 0; i < index - 1; i++) {
-			likptr = likptr->node;
-		}
-		free(likptr->node);
-		likptr->node = likptr->node->node;
-	}
-	else if (index == 0) {
-		likptr = likptr->node;
-	}
-	else if (index > Count(likptr) - 1) {
-		abort();
-	}
-	else {
-		abort();
-	}
-}
-
-void FindNodes(void * p, LINKED_LIST * likptr) {
-}
-
-

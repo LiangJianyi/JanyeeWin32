@@ -4,15 +4,10 @@
 #include <stdlib.h>
 #include "tool.h"
 #include "CProject2.h"
+#include "LinkedList.h"
+
 int main() {
-	/*char text[] = { 'a','p','p','l','e' };
-	char(*textp)[5] = &text;
-	for (size_t i = 0; i < 5; i++) {
-		printf_s("%c ", (*textp)[i]);
-	}
-	printf_s("\n");*/
 	struct STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level);
-	struct LINKED_LIST lik;
 	struct STUDENT * stu_ptr = GetStudent("s001", "Janyee", LOW);
 	printf_s("stu_ptr address: %p\n", stu_ptr);
 	void * void_ptr = stu_ptr;
@@ -20,8 +15,6 @@ int main() {
 	const char * text_ptr = "fuck";
 	printf_s("text_ptr address: %p  text_ptr content:%s\n", text_ptr, text_ptr);
 	const void * const_void_ptr = text_ptr;
-	//void_ptr = text_ptr;
-	//printf_s("%p\n", lik_ptr);
 
 	NewParagraph();
 
@@ -31,10 +24,33 @@ int main() {
 	first.node = NULL;
 
 	Add(GetStudent("s002", "Lee SM", MEDIUM), &first);
-	Add(GetStudent("s003", "Wong YM", HIGH), &first);
+	Add(GetStudent("s003", "Wong YUYan", HIGH), &first);
+	Add(GetStudent("s004", "Wong Xinyu", HIGH), &first);
+	Add(GetStudent("s005", "Zhao Linyue", MEDIUM), &first);
+	Add(GetStudent("s006", "Phoebe Kilminster", HIGH), &first);
 	ForEach(&first, PrintStudentInfo);
 	printf_s("Count of LinkedList: %d", Count(&first));
 
+	/*NewParagraph();
+
+	printf_s("Remove index 0:\n");
+	first = *Remove(0, &first);
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Remove index 1:\n");
+	first = *Remove(1, &first);
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Remove index 2:\n");
+	first = *Remove(2, &first);
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Remove index 3:\n");
+	first = *Remove(3, &first);
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Remove index 4:\n");
+	first = *Remove(4, &first);
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Remove index 5:\n");
+	first = *Remove(5, &first);
+	ForEach(&first, PrintStudentInfo);*/
 	return 0;
 }
 
