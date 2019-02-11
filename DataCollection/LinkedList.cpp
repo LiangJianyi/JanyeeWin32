@@ -20,16 +20,19 @@ void Add(void * content, struct LINKED_LIST * likptr) {
 	}
 }
 
-size_t $Increment = 0;
 size_t Count(LINKED_LIST * likptr) {
+	InsideCount(likptr);
+}
+
+size_t InsideCount(LINKED_LIST * likptr, size_t incre = 0) {
 	if (likptr != NULL) {
 		if (likptr->content != NULL) {
-			$Increment += 1;
-			return Count(likptr->node);
+			incre += 1;
+			return InsideCount(likptr->node);
 		}
 	}
 	else {
-		return $Increment;
+		return incre;
 	}
 }
 
