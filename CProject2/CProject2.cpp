@@ -29,28 +29,34 @@ int main() {
 	Add(GetStudent("s005", "Zhao Linyue", MEDIUM), &first);
 	Add(GetStudent("s006", "Phoebe Kilminster", HIGH), &first);
 	ForEach(&first, PrintStudentInfo);
-	printf_s("Count of LinkedList: %d", Count(&first));
+	printf_s("Count of LinkedList: %d\n", Count(&first));
 
-	/*NewParagraph();
+	NewParagraph();
 
 	printf_s("Remove index 0:\n");
 	first = *Remove(0, &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	printf_s("Remove index 1:\n");
 	first = *Remove(1, &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	printf_s("Remove index 2:\n");
 	first = *Remove(2, &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	printf_s("Remove index 3:\n");
 	first = *Remove(3, &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	printf_s("Remove index 4:\n");
 	first = *Remove(4, &first);
 	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	printf_s("Remove index 5:\n");
 	first = *Remove(5, &first);
-	ForEach(&first, PrintStudentInfo);*/
+	ForEach(&first, PrintStudentInfo);
+	printf_s("Count of LinkedList: %d\n\n", Count(&first));
 	return 0;
 }
 

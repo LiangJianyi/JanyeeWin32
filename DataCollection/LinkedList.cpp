@@ -35,11 +35,9 @@ size_t Count(LINKED_LIST * likptr) {
 
 LINKED_LIST * Remove(size_t index, LINKED_LIST * likptr) {
 	if (index > 0) {
-		for (size_t i = 0; i < index - 1; i++) {
-			likptr = likptr->node;
-		}
-		free(likptr->node);
+		LINKED_LIST * releaseNode = likptr->node;
 		likptr->node = likptr->node->node;
+		free(releaseNode);
 		return likptr;
 	}
 	else if (index == 0) {
