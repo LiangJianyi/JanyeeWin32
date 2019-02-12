@@ -56,7 +56,11 @@ const char * LevelEnumToString(LEVEL level) {
 	}
 }
 
-
+SIZE_T * NewSizeType(size_t v) {
+	SIZE_T * st = (SIZE_T*)malloc(sizeof(SIZE_T));
+	st->value = v;
+	return st;
+}
 
 
 void ReadFile(char * path) {
