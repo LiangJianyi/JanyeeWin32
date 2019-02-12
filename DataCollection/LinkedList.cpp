@@ -21,7 +21,8 @@ void Add(void * content, struct LINKED_LIST * likptr) {
 }
 
 size_t Count(LINKED_LIST * likptr) {
-	InsideCount(likptr);
+	size_t InsideCount(LINKED_LIST * likptr, size_t incre = 0);
+	return InsideCount(likptr);
 }
 
 size_t InsideCount(LINKED_LIST * likptr, size_t incre = 0) {
@@ -37,11 +38,29 @@ size_t InsideCount(LINKED_LIST * likptr, size_t incre = 0) {
 }
 
 LINKED_LIST * Remove(size_t index, LINKED_LIST * likptr) {
+	if (index > -1 && index < Count(likptr)) {
+		if (likptr!=NULL) {
+			for (size_t i = 0, struct LINKED_LIST * temp = NULL; i <= index; i++) {
+				// TODO...
+			}
+		}
+		else {
+			abort();
+		}
+	}
+	else {
+		abort();
+	}
 	if (index > 0) {
 		LINKED_LIST * releaseNode = likptr->node;
-		likptr->node = likptr->node->node;
-		free(releaseNode);
-		return likptr;
+		if (likptr->node != NULL) {
+			likptr->node = likptr->node->node;
+			free(releaseNode);
+			return likptr;
+		}
+		else {
+			return likptr->node;
+		}
 	}
 	else if (index == 0) {
 		return likptr->node;
