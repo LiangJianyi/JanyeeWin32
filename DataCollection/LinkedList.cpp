@@ -33,6 +33,7 @@ size_t InsideCount(LINKED_LIST * likptr, SIZE_T * incre) {
 			return InsideCount(likptr->node, incre);
 		}
 		else {
+			incre->value += 1;
 			return incre->value;
 		}
 	}
@@ -42,8 +43,7 @@ size_t InsideCount(LINKED_LIST * likptr, SIZE_T * incre) {
 }
 
 LINKED_LIST * Remove(size_t index, LINKED_LIST * likptr) {
-	printf_s("index: %d  Count(likptr): %d", index, Count(likptr));
-	if (index > -1 && index < Count(likptr)) {
+	if (index < Count(likptr)) {
 		if (likptr != NULL) {
 			struct LINKED_LIST * releaseNode = NULL;
 			if (index == 0) {

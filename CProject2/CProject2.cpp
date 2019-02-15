@@ -7,17 +7,6 @@
 #include "LinkedList.h"
 
 int main() {
-	struct STUDENT * GetStudent(const char * id, const char * name, enum LEVEL level);
-	struct STUDENT * stu_ptr = GetStudent("s001", "Janyee", LOW);
-	printf_s("stu_ptr address: %p\n", stu_ptr);
-	void * void_ptr = stu_ptr;
-	printf_s("void_ptr address: %p\n", void_ptr);
-	const char * text_ptr = "fuck";
-	printf_s("text_ptr address: %p  text_ptr content:%s\n", text_ptr, text_ptr);
-	const void * const_void_ptr = text_ptr;
-
-	NewParagraph();
-
 	void PrintStudentInfo(const char * sti);
 	struct LINKED_LIST first;
 	first.content = GetStudent("s001", "Janyee", LOW);
